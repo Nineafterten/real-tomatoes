@@ -1,2 +1,3 @@
-# real-tomatoes
-A tool to get more accurate Rotten Tomato scores between critics and users
+# resources-of-the-wild
+
+A Hyrule Compendium
