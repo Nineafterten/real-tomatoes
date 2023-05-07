@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Results from "./Results";
 import useEntryList from "./useEntryList";
+const CATEGORIES = ['Food','Creatures','Equipment','Materials','Monsters','Treasure'];
 
 const SearchParams = () => {
-  const CATEGORIES = ['Food','Creatures','Equipment','Materials','Monsters','Treasure'];
   const [category, setCategory] = useState("");
   const [entry, setEntry] = useState("");
   const [entryList] = useEntryList(category);
@@ -15,6 +15,7 @@ const SearchParams = () => {
   async function requestEntries() {
     let param = category === 'Food' ? 'creatures' : category.toLowerCase();
     let resultData;
+    if (!param) { return };
     const result = await fetch(`https://botw-compendium.herokuapp.com/api/v2/category/${param}`)
     const json = await result.json();
     resultData = json.data;
@@ -29,44 +30,54 @@ const SearchParams = () => {
 
   return (
     <div className="search-params">
-      <label htmlFor="category">
-        Category
-        <select
-          id="category"
-          value={category}
-          placeholder="Category"
-          onChange={(e) => {
-            setCategory(e.target.value);
-            setEntry('');
-            requestEntries(e.target.value);
-          }}
-        >
-          <option />
-          {CATEGORIES.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label htmlFor="entry">
-          Entries
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestEntries();
+        }}
+      >
+        <label htmlFor="category">
+          Category
           <select
-            disabled={!entryList.length}
-            id="entry"
-            value={entry}
-            onChange={(e) => setEntry(e.target.value)}
+            id="category"
+            value={category}
+            placeholder="Category"
+            onChange={(e) => {
+              setCategory(e.target.value);
+              setEntry('');
+              requestEntries(e.target.value);
+            }}
           >
             <option />
-              {entryList.map((ent) => (
-                <option key={ent.id} value={ent.name}>
-                  {ent.name}
-                </option>
-              ))}
+            {CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
           </select>
         </label>
-      <Results results={entry} />
+        <label htmlFor="entry">
+            Entries
+            <select
+              disabled={!entryList.length}
+              id="entry"
+              value={entry}
+              onChange={(e) => { 
+                setEntry(e.target.value)
+                console.log('select entry', e.target.value)
+              }}
+            >
+              <option />
+                {entryList.map((ent) => (
+                  <option key={ent.id} value={JSON.stringify(ent)}>
+                    {ent.name}
+                  </option>
+                ))}
+            </select>
+          </label>
+        <button>Search</button>
+      </form>
+      <Results entry={entry} />
     </div>
   );
 };
