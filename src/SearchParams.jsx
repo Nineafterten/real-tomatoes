@@ -30,15 +30,16 @@ const SearchParams = () => {
 
   return (
     <div className="search-params">
-      <form
+      <form className="row"
         onSubmit={(e) => {
           e.preventDefault();
           requestEntries();
         }}
       >
-        <label htmlFor="category">
+        <label htmlFor="category" className="six columns">
           Category
           <select
+            className="u-full-width"
             id="category"
             value={category}
             placeholder="Category"
@@ -56,9 +57,10 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="entry">
+        <label htmlFor="entry" className="six columns">
             Entries
             <select
+              className="u-full-width"
               disabled={!entryList.length}
               id="entry"
               value={entry}
@@ -68,14 +70,13 @@ const SearchParams = () => {
               }}
             >
               <option />
-                {entryList.map((ent) => (
-                  <option key={ent.id} value={JSON.stringify(ent)}>
-                    {ent.name}
-                  </option>
-                ))}
+              {entryList.map((ent) => (
+                <option key={ent.id} value={JSON.stringify(ent)}>
+                  {ent.name}
+                </option>
+              ))}
             </select>
           </label>
-        <button>Search</button>
       </form>
       <Results entry={entry} />
     </div>

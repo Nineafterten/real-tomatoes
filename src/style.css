@@ -2,3 +2,27 @@
   box-sizing: border-box;
   color: #333;
 }
+*::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: gainsboro;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-top: 4rem;
+  background-color: white;
+  padding: 4rem;
+  border: 2rem solid rgba(0,0,0, 0.2)
+}
+
+.page-title {
+  text-align: center;
+}
+.page-subtitle {
+  text-align: center;
+  color: #999;
+}

@@ -3,9 +3,9 @@ import SearchParams from "./SearchParams";
 
 const App = () => {
   return (
-    <div>
-      <h1>Resources of the Wild</h1>
-      <h2>A Hyrule Compendium</h2>
+    <div className="row">
+      <h1 className="page-title">Resources of the Wild</h1>
+      <h2 className="page-subtitle">A Hyrule Compendium</h2>
       <SearchParams />
     </div>
   );

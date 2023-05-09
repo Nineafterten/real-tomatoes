@@ -1,22 +1,34 @@
 const Entry = (props) => {
-  const { name, image, id, locations } = props;
+  const { name, image, id, locations, description } = props;
 
-  let hero = "https://placehold.co/280x280";
+  let hero = 'https://placehold.co/280x280';
   if (image && image.length) {
     hero = image;
+  }
+  let title = 'N/A';
+  if (name && name.length) {
+    title = name.toUpperCase();
   }
   console.log('build entry', props);
 
   return (
-    <a href={`/details/${id}`} className="entry">
-      <div className="image-container">
-        <img src={hero} alt={name} />
+    <div className="entry row" id={id}>
+        <div className="image-container four columns">
+            <img src={hero} alt={title} />
+        </div>
+        <div className="info eight columns">
+            <h4>{title}</h4>
+            <p>{description}</p>
+            <h5>Locations:</h5>
+            {locations && locations.length ? (
+                <ul>
+                    {locations.map((lo) => (
+                        <li key={lo}>{lo}</li>
+                    ))}
+                </ul>
+            ) : ('')}
+        </div>
       </div>
-      <div className="info">
-        <h4>{name}</h4>
-        <p>{Array.isArray(locations) ? locations.join(', ') : ''}</p>
-      </div>
-    </a>
   );
 };
 

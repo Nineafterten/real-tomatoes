@@ -11,6 +11,7 @@ const Results = ({ entry }) => {
             key={entry.id}
             image={entry.image}
             locations={entry.common_locations}
+            description={entry.description}
             id={entry.id}
           />
       ) : (
