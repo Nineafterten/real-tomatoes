@@ -12,6 +12,12 @@ const Results = ({ entry }) => {
             image={entry.image}
             locations={entry.common_locations}
             description={entry.description}
+            category={entry.category}
+            drops={entry.drops}
+            attack={entry.attack}
+            defense={entry.defense}
+            hearts={entry.hearts_recovered}
+            cooking={entry.cooking_effect}
             id={entry.id}
           />
       ) : (

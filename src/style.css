@@ -83,3 +83,21 @@ label, h4 {
   text-align: center;
   color: #ccc;
 }
+
+.cooking-container .hearts i {
+  color: palevioletred;
+}
+.cooking-container .bonus i {
+  color: mediumaquamarine ;
+}
+.equipment-container .attack i {
+  color: burlywood;
+}
+.equipment-container .defense i {
+  color: skyblue;
+}
+.cooking-container div,
+.equipment-container div {
+  float: left;
+  padding-right: 1rem;
+}
