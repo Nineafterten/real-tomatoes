@@ -36,7 +36,7 @@ const SearchParams = () => {
           requestEntries();
         }}
       >
-        <label htmlFor="category" className="six columns">
+        <label htmlFor="category" className="five columns">
           Category
           <select
             className="u-full-width"
@@ -57,7 +57,7 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="entry" className="six columns">
+        <label htmlFor="entry" className="seven columns">
             Entries
             <select
               className="u-full-width"
@@ -72,7 +72,7 @@ const SearchParams = () => {
               <option />
               {entryList.map((ent) => (
                 <option key={ent.id} value={JSON.stringify(ent)}>
-                  {ent.name}
+                  {ent.name[0].toUpperCase() + ent.name.substring(1, ent.name.length) }
                 </option>
               ))}
             </select>

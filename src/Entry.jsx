@@ -13,21 +13,30 @@ const Entry = (props) => {
 
   return (
     <div className="entry row" id={id}>
-        <div className="image-container four columns">
+        <div className="image-container five columns">
             <img src={hero} alt={title} />
         </div>
-        <div className="info eight columns">
-            <h4>{title}</h4>
-            <p>{description}</p>
-            <h5>Locations:</h5>
-            {locations && locations.length ? (
-                <ul>
-                    {locations.map((lo) => (
-                        <li key={lo}>{lo}</li>
-                    ))}
-                </ul>
-            ) : ('')}
-        </div>
+        {name ? (
+            <div className="info-container seven columns">
+                <h4>{title}</h4>
+                <p>{description}</p>
+                <h5>Locations:</h5>
+                {locations && locations.length ? (
+                    <ul>
+                        {locations.map((lo) => (
+                            <li key={lo}>{lo}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <ul>
+                        <li>No locations found</li>
+                    </ul>
+                )}
+            </div>) :
+            (
+                <h5 className="empty-entry">Please select a category/entry</h5>
+            )
+        }
       </div>
   );
 };
