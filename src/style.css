@@ -48,7 +48,6 @@ body {
   margin: 0;
   background-color: #fec84e;
   background-image: linear-gradient(315deg, #fec84e 0%, #ffdea8 74%);
-  
 }
 .page-subtitle {
   text-align: center;
@@ -61,6 +60,23 @@ body {
   letter-spacing: 0.4rem;
   background-color: #e7eff9;
   background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 100%);
+}
+
+footer {
+  text-align: center;
+  color: #797f85;
+  background: #dedede;
+  margin: 0;
+  font-size: 1.1rem;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  background-color: #e7eff9;
+  background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 100%);
+}
+footer a {
+  text-decoration: none;
+  color: #797f85
 }
 .image-container {
   text-align: center;
@@ -76,6 +92,14 @@ label, h4 {
   color: #797f85;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
+}
+h5 {
+  color: #797f85;
+  letter-spacing: 0.1rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .empty-entry {
